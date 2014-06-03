@@ -1,4 +1,4 @@
-# ip17mon [![Build Status](https://secure.travis-ci.org/chichou/ip17mon.png?branch=master)](http://travis-ci.org/chichou/ip17mon)
+# ip17mon [![Build Status](https://travis-ci.org/ChiChou/ip17mon.svg?branch=master)](https://travis-ci.org/ChiChou/ip17mon)
 
 [English Document](README.en.md)
 
