@@ -1,68 +1,66 @@
 # ip17mon [![Build Status](https://secure.travis-ci.org/chichou/ip17mon.png?branch=master)](http://travis-ci.org/chichou/ip17mon)
 
-A Node.js module to query location information for a given IP or domain name, based on database by [17mon.cn](http://tools.17mon.cn).
+[English Document](README.en.md)
 
-Forked from: [ilsanbao/17moncn](https://github.com/ilsanbao/17moncn/tree/master/ip/nodejs)
+适用于 Node.js 的 [17mon.cn](http://tools.17mon.cn) IP 数据库查询模块。
 
-## Getting Started
+## 入门
 
-Download the [database here](http://s.qdcdn.com/17mon/17monipdb.dat) and put it on the module directory.
+首先[下载 IP 地址库](http://s.qdcdn.com/17mon/17monipdb.dat) 并放入同一目录。
 
 	var ip17mon = require('ip17mon');
 	console.log(ip17mon.query('202.195.161.30', 'dict')); 
-	//domain query must be asynchronous
+	//域名的接口必须使用异步调用
     ip17mon.queryDomain('ujs.edu.cn', 'dict', function(result) {
         console.log(result);
     });
 
-## Documentation
+## 文档
 
-### Query by IP
+### 查 IP
 
 query(ip [, format])
 
 **ip**
 
-IP address that you want to query. e.g. `8.8.8.8`
+待查询的 IP 地址，如 `8.8.8.8`
 
 **format** 
 
-Format of the information, shoule be `array` or `dict`. 
+制定返回数据的格式，可设置为 `array` 或者 `dict`。 
 
-When set to `dict` you'll get an object that consists of four keys: `country`, `province`, `city`, `organization`. e.g.:
+默认是长度为4的数组，包含国家、省份、城市、单位信息。
+
+设为 `dict` 时返回格式如下：
 
   	{
-	    country: '中国',
-	    province: '江苏',
-	    city: '镇江',
-	    organization: '江苏大学' 
+	    country: '国家',
+	    province: '省份',
+	    city: '城市',
+	    organization: '单位' 
 	}
 
-Otherwise, it returns an array as following format: `['country', 'province', 'city', 'organization']`.
+*注意:* 在程序初始化时，加载内容到内存可能需要一定时间（很短），在这段时间内所有查询请求均会失败，返回空值。
 
-*Note:* Loading database to memory takes some time. During the period you can  still call `query` function, but it does not return anything although the IP does exist in the database. 
-
-### Query by domain name
+### 查询域名
 
 queryDomain(domain [, format], callback)
 
-Due to dns query, this function must be asynchronous.
+由于需要查询 DNS，本函数只能通过异步调用。不存在前文中需要等待程序加载的问题。
 
 **domain**
 
-Domain name that you want to query. e.g. `google.com`
+域名，如 `google.com`
 
 **format** 
 
-The same as `query`. 
+同上。
 
 **callback**
 
-Fires when result found. Returns `{}` or `[]` when failed, format depends on the former paramer.
+处理结果的回调函数，只接受一个参数，格式之前的 `format` 参数决定。
 
-Should be declared as: `callback(result)`
-
-## Examples
+## 示例
 
 	ip17mon.query('202.195.161.30', 'dict');
 
@@ -76,16 +74,3 @@ Should be declared as: `callback(result)`
 	}
 	*/
 
-## Contributing
-
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-
-### r1 Initial Version
-
-Reconstructed from [ilsanbao/17moncn](https://github.com/ilsanbao/17moncn/tree/master/ip/nodejs)
-
-## License
-
-Copyright (c) 2014 ChiChou. Licensed under the MIT license.
