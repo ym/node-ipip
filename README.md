@@ -6,7 +6,7 @@ Forked from: [ilsanbao/17moncn](https://github.com/ilsanbao/17moncn/tree/master/
 
 ## Getting Started
 
-Download the database here and put it on the module directory.
+Download the [database here](http://s.qdcdn.com/17mon/17monipdb.dat) and put it on the module directory.
 
 	var ip17mon = require('ip17mon');
 	console.log(ip17mon.query('202.195.161.30', 'dict')); 
@@ -44,10 +44,9 @@ Otherwise, it returns an array as following format: `['country', 'province', 'ci
 
 ### Query by domain name
 
-Due to dns query, this function must be asynchronous.
-
 queryDomain(domain [, format], callback)
 
+Due to dns query, this function must be asynchronous.
 
 **domain**
 
