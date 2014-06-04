@@ -2,15 +2,15 @@
 
 [English Document](README.en.md)
 
-适用于 Node.js 的 [17mon.cn](http://tools.17mon.cn) IP 数据库查询模块。
+适用于 Node.js 的 [17mon.cn](http://tool.17mon.cn) IP 数据库查询模块。
 
 ## 入门
 
 首先[下载 IP 地址库](http://s.qdcdn.com/17mon/17monipdb.dat) 并放入同一目录。
 
-	var ip17mon = require('ip17mon');
-	console.log(ip17mon.query('202.195.161.30', 'dict')); 
-	//域名的接口必须使用异步调用
+    var ip17mon = require('ip17mon');
+    console.log(ip17mon.query('202.195.161.30', 'dict')); 
+    //域名的接口必须使用异步调用
     ip17mon.queryDomain('ujs.edu.cn', 'dict', function(result) {
         console.log(result);
     });
@@ -33,12 +33,12 @@ query(ip [, format])
 
 设为 `dict` 时返回格式如下：
 
-  	{
-	    country: '国家',
-	    province: '省份',
-	    city: '城市',
-	    organization: '单位' 
-	}
+    {
+        country: '国家',
+        province: '省份',
+        city: '城市',
+        organization: '单位' 
+    }
 
 *注意:* 在程序初始化时，加载内容到内存可能需要一定时间（很短），在这段时间内所有查询请求均会失败，返回空值。
 
@@ -62,15 +62,15 @@ queryDomain(domain [, format], callback)
 
 ## 示例
 
-	ip17mon.query('202.195.161.30', 'dict');
+    ip17mon.query('202.195.161.30', 'dict');
 
-	/*
-	returns:
-  	{
-	    country: '中国',
-	    province: '江苏',
-	    city: '镇江',
-	    organization: '江苏大学' 
-	}
-	*/
+    /*
+    returns:
+    {
+        country: '中国',
+        province: '江苏',
+        city: '镇江',
+        organization: '江苏大学' 
+    }
+    */
 

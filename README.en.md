@@ -2,7 +2,7 @@
 
 [中文文档](README.md)
 
-A Node.js module to query location information for a given IP or domain name, based on database by [17mon.cn](http://tools.17mon.cn).
+A Node.js module to query location information for a given IP or domain name, based on database by [17mon.cn](http://tool.17mon.cn).
 
 Forked from: [ilsanbao/17moncn](https://github.com/ilsanbao/17moncn/tree/master/ip/nodejs)
 
@@ -10,9 +10,9 @@ Forked from: [ilsanbao/17moncn](https://github.com/ilsanbao/17moncn/tree/master/
 
 Download the [database here](http://s.qdcdn.com/17mon/17monipdb.dat) and put it on the module directory.
 
-	var ip17mon = require('ip17mon');
-	console.log(ip17mon.query('202.195.161.30', 'dict')); 
-	//domain query must be asynchronous
+    var ip17mon = require('ip17mon');
+    console.log(ip17mon.query('202.195.161.30', 'dict')); 
+    //domain query must be asynchronous
     ip17mon.queryDomain('ujs.edu.cn', 'dict', function(result) {
         console.log(result);
     });
@@ -33,12 +33,12 @@ Format of the information, shoule be `array` or `dict`.
 
 When set to `dict` you'll get an object that consists of four keys: `country`, `province`, `city`, `organization`. e.g.:
 
-  	{
-	    country: '中国',
-	    province: '江苏',
-	    city: '镇江',
-	    organization: '江苏大学' 
-	}
+    {
+        country: '中国',
+        province: '江苏',
+        city: '镇江',
+        organization: '江苏大学' 
+    }
 
 Otherwise, it returns an array as following format: `['country', 'province', 'city', 'organization']`.
 
@@ -66,17 +66,17 @@ Should be declared as: `callback(result)`
 
 ## Examples
 
-	ip17mon.query('202.195.161.30', 'dict');
+    ip17mon.query('202.195.161.30', 'dict');
 
-	/*
-	returns:
-  	{
-	    country: '中国',
-	    province: '江苏',
-	    city: '镇江',
-	    organization: '江苏大学' 
-	}
-	*/
+    /*
+    returns:
+    {
+        country: '中国',
+        province: '江苏',
+        city: '镇江',
+        organization: '江苏大学' 
+    }
+    */
 
 ## Contributing
 
