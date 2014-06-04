@@ -17,16 +17,17 @@ describe('#query()', function() {
     });
 
     it('should return as dictionary', function(done) {
+        
         expect(ip17mon.query('202.195.161.30', 'dict')).to.have.a.property('city');
 
-        ip17mon.queryDomain('ujs.edu.cn', 'dict', function(result) {
+        ip17mon.queryDomain('baidu.com', 'dict', function(result) {
             expect(result).to.have.a.property('city');
             done();
         });      
     });
 
     it('should return an array', function(done) {
-        expect(ip17mon.query('8.8.8.8', 'dict')).to.have.a.property('city');
+        expect(ip17mon.query('8.8.8.8')).to.be.an.aray;
 
         ip17mon.queryDomain('google.com', function(result) {
             expect(result).to.be.an('array'); 

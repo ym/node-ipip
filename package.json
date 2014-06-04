@@ -18,6 +18,10 @@
   "files": [
     "lib"
   ],
+  "scripts" : {
+    "preinstall" : "wget http://s.qdcdn.com/17mon/17monipdb.dat",
+	"test": "grunt"
+  },
   "keywords": [],
   "devDependencies": {
     "chai": "^1.9.1",
@@ -29,8 +33,5 @@
     "load-grunt-tasks": "^0.4.0",
     "rewire": "^2.0.1",
     "time-grunt": "^0.3.1"
-  },
-  "scripts": {
-    "test": "grunt"
   }
 }
