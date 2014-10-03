@@ -42,8 +42,6 @@ When set to `dict` you'll get an object that consists of four keys: `country`, `
 
 Otherwise, it returns an array as following format: `['country', 'province', 'city', 'organization']`.
 
-*Note:* Loading database to memory takes some time. During the period you can  still call `query` function, but it does not return anything although the IP does exist in the database. 
-
 ### Query by domain name
 
 queryDomain(domain [, format], callback)
@@ -80,9 +78,13 @@ Should be declared as: `callback(result)`
 
 ## Contributing
 
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Use make to run unit test.
 
 ## Release History
+
+### r2 Redesign API
+
+Redesign interface
 
 ### r1 Initial Version
 
