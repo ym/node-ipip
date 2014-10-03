@@ -1,4 +1,4 @@
-# ip17mon [![Build Status](https://travis-ci.org/ChiChou/ip17mon.svg?branch=master)](https://travis-ci.org/ChiChou/ip17mon)
+# ip17mon [![Build Status](https://travis-ci.org/ChiChou/ip17mon.svg?branch=master)](https://travis-ci.org/ChiChou/ip17mon) [![Coverage Status](https://img.shields.io/coveralls/ChiChou/ip17mon.svg)](https://coveralls.io/r/ChiChou/ip17mon)
 
 [English Document](README.en.md)
 
@@ -6,7 +6,7 @@
 
 ## 入门
 
-首先[下载 IP 地址库](http://s.qdcdn.com/17mon/17monipdb.dat) 并放入同一目录。
+[IP 地址库](http://s.qdcdn.com/17mon/17monipdb.dat) 由 17mon 提供，在 `npm install` 过程中将自动下载。
 
 代码示例
 
