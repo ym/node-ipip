@@ -1,13 +1,13 @@
 'use strict';
 
 var expect = require('chai').expect,
-    ip17mon = require('../lib/ip17mon.js');
+    ip17mon = require('../lib/ip17mon.js')();
 
 describe('#query()', function() {
 
     it('should handle malformed input', function(done) {
         expect(ip17mon.query('202.x.x.x', 'dict')).to.be.empty;
-        expect(ip17mon.query('0.0.0.0')).to.be.empty;
+        expect(ip17mon.query('-1.-1.-1.-1')).to.be.empty;
 
         ip17mon.queryDomain('thisdomainshallneverexsts', 'dict', function(result) {
             expect(result).to.be.empty;
