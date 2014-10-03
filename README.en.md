@@ -1,4 +1,4 @@
-# ip17mon [![Build Status](https://travis-ci.org/ChiChou/ip17mon.svg?branch=master)](https://travis-ci.org/ChiChou/ip17mon)
+# ip17mon [![Build Status](https://travis-ci.org/ChiChou/ip17mon.svg?branch=master)](https://travis-ci.org/ChiChou/ip17mon) [![Coverage Status](https://img.shields.io/coveralls/ChiChou/ip17mon.svg)](https://coveralls.io/r/ChiChou/ip17mon)
 
 [中文文档](README.md)
 
@@ -8,7 +8,7 @@ Forked from: [ilsanbao/17moncn](https://github.com/ilsanbao/17moncn/tree/master/
 
 ## Getting Started
 
-Download the [database here](http://s.qdcdn.com/17mon/17monipdb.dat) and put it on the module directory.
+[Database](http://s.qdcdn.com/17mon/17monipdb.dat) is provided by 17mon.cn. It will be downloaded automatically, no extra operations needed.
 
     var ip17mon = require('ip17mon');
     console.log(ip17mon.query('202.195.161.30', 'dict')); 
@@ -41,8 +41,6 @@ When set to `dict` you'll get an object that consists of four keys: `country`, `
     }
 
 Otherwise, it returns an array as following format: `['country', 'province', 'city', 'organization']`.
-
-*Note:* Loading database to memory takes some time. During the period you can  still call `query` function, but it does not return anything although the IP does exist in the database. 
 
 ### Query by domain name
 
@@ -80,9 +78,13 @@ Should be declared as: `callback(result)`
 
 ## Contributing
 
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Use make to run unit test.
 
 ## Release History
+
+### r2 Redesign API
+
+Redesign interface
 
 ### r1 Initial Version
 

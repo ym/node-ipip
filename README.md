@@ -1,4 +1,4 @@
-# ip17mon [![Build Status](https://travis-ci.org/ChiChou/ip17mon.svg?branch=master)](https://travis-ci.org/ChiChou/ip17mon)
+# ip17mon [![Build Status](https://travis-ci.org/ChiChou/ip17mon.svg?branch=master)](https://travis-ci.org/ChiChou/ip17mon) [![Coverage Status](https://img.shields.io/coveralls/ChiChou/ip17mon.svg)](https://coveralls.io/r/ChiChou/ip17mon)
 
 [English Document](README.en.md)
 
@@ -6,11 +6,14 @@
 
 ## 入门
 
-首先[下载 IP 地址库](http://s.qdcdn.com/17mon/17monipdb.dat) 并放入同一目录。
+[IP 地址库](http://s.qdcdn.com/17mon/17monipdb.dat) 由 17mon 提供，在 `npm install` 过程中将自动下载。
 
-    var ip17mon = require('ip17mon');
-    console.log(ip17mon.query('202.195.161.30', 'dict')); 
-    //域名的接口必须使用异步调用
+代码示例
+
+    var ip17mon = require('ip17mon')();
+    // 查询 IP 信息，以字典格式返回
+    console.log(ip17mon.query('202.195.161.30', 'dict'));
+    // 域名的接口必须使用异步调用
     ip17mon.queryDomain('ujs.edu.cn', 'dict', function(result) {
         console.log(result);
     });
@@ -19,7 +22,7 @@
 
 ### 查 IP
 
-query(ip [, format])
+IP17Mon.query(ip [, format])
 
 **ip**
 
@@ -40,13 +43,11 @@ query(ip [, format])
         organization: '单位' 
     }
 
-*注意:* 在程序初始化时，加载内容到内存可能需要一定时间（很短），在这段时间内所有查询请求均会失败，返回空值。
-
 ### 查询域名
 
-queryDomain(domain [, format], callback)
+IP17Mon.queryDomain(domain [, format], callback)
 
-由于需要查询 DNS，本函数只能通过异步调用。不存在前文中需要等待程序加载的问题。
+由于需要查询 DNS，本函数只能通过异步调用。
 
 **domain**
 
@@ -74,3 +75,6 @@ queryDomain(domain [, format], callback)
     }
     */
 
+## 提示
+
+程序在初始化过程中会一次性加载数据库到内存，消耗一定 RAM 并阻塞线程。请注意管理模块实例以免发生内存泄露。
