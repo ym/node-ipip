@@ -18,20 +18,16 @@
   "files": [
     "lib"
   ],
-  "scripts" : {
-    "preinstall" : "wget http://s.qdcdn.com/17mon/17monipdb.dat",
-	"test": "grunt"
+  "scripts": {
+    "preinstall": "wget http://s.qdcdn.com/17mon/17monipdb.dat",
+    "test": "make test-all"
   },
   "keywords": [],
   "devDependencies": {
-    "chai": "^1.9.1",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-mocha": "^0.4.11",
-    "grunt-mocha-test": "^0.11.0",
-    "jshint-stylish": "^0.2.0",
-    "load-grunt-tasks": "^0.4.0",
-    "rewire": "^2.0.1",
-    "time-grunt": "^0.3.1"
+    "chai": "^1.9.2",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.2",
+    "mocha": "^1.21.4",
+    "rewire": "^2.1.0"
   }
 }
