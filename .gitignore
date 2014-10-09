@@ -2,3 +2,4 @@
 17monipdb.dat
 coverage/
 *.log
+.coveralls.yml
