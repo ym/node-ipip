@@ -1,6 +1,6 @@
 TESTS = test/*.js
 REPORTER = spec
-TIMEOUT = 20000
+TIMEOUT = 2000
 ISTANBUL = ./node_modules/.bin/istanbul
 MOCHA = ./node_modules/mocha/bin/_mocha
 COVERALLS = ./node_modules/coveralls/bin/coveralls.js
@@ -19,5 +19,9 @@ test-coveralls:
 	@cat ./coverage/lcov.info | $(COVERALLS) && rm -rf ./coverage
 
 test-all: test test-coveralls
+
+prepare:
+	wget http://s.qdcdn.com/17mon/17monipdb.zip
+	unzip -p 17monipdb.zip 17monipdb.dat>17monipdb.dat
 
 .PHONY: test
