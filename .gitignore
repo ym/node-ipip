@@ -1,5 +1,6 @@
 /node_modules/
 17monipdb.dat
+17monipdb.datx
 coverage/
 *.log
 .coveralls.yml

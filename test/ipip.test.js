@@ -32,6 +32,10 @@ describe('IPIP', function() {
     }).to.throw(Error);
 
     expect(function() {
+      ip.domain('8.8.4.4', 0);
+    }).to.throw(Error);
+
+    expect(function() {
       ip.domain.apply(ip, new Array(4));
     }).to.throw(Error);
 
