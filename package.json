@@ -1,10 +1,10 @@
 {
-  "name": "ip17mon",
+  "name": "ipip",
   "version": "0.2.1",
-  "main": "lib/ip17mon.js",
+  "main": "lib/ipip.js",
   "description": "Query location information for a given IP, based on database by 17mon.cn",
   "homepage": "http://tool.17mon.cn",
-  "bugs": "https://github.com/ChiChou/ip17mon/issues",
+  "bugs": "https://github.com/ChiChou/node-ipip/issues",
   "author": {
     "name": "ChiChou",
     "email": "chichou@ujs.edu.cn",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/ChiChou/ip17mon.git"
+    "url": "git://github.com/ChiChou/node-ipip.git"
   },
   "license": "MIT",
   "files": [
     "lib"
   ],
   "scripts": {
-    "preinstall": "wget http://s.qdcdn.com/17mon/17monipdb.dat",
+    "preinstall": "make prepare",
     "test": "make test-all"
   },
   "keywords": [],

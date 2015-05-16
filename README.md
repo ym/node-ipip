@@ -1,8 +1,8 @@
-# ip17mon [![Build Status](https://travis-ci.org/ChiChou/ip17mon.svg?branch=master)](https://travis-ci.org/ChiChou/ip17mon) [![Coverage Status](https://img.shields.io/coveralls/ChiChou/ip17mon.svg)](https://coveralls.io/r/ChiChou/ip17mon)
+# node-ipip [![Build Status](https://travis-ci.org/ChiChou/node-ipip.svg?branch=master)](https://travis-ci.org/ChiChou/node-ipip) [![Coverage Status](https://img.shields.io/coveralls/ChiChou/node-ipip.svg)](https://coveralls.io/r/ChiChou/node-ipip)
 
 [English Document](README.en.md)
 
-适用于 Node.js 的 [17mon.cn](http://tool.17mon.cn) IP 数据库查询模块。
+适用于 Node.js 的 [ipip.net](http://ipip.net) IP 数据库查询模块。
 
 ## 入门
 
@@ -10,19 +10,22 @@
 
 代码示例
 
-    var ip17mon = require('ip17mon')();
+    var ipip = require('ipip').get();
+    ...
     // 查询 IP 信息，以字典格式返回
-    console.log(ip17mon.query('202.195.161.30', 'dict'));
+    console.log(ipip.ip('202.195.161.30'));
     // 域名的接口必须使用异步调用
-    ip17mon.queryDomain('ujs.edu.cn', 'dict', function(result) {
+    ip17mon.domain('ujs.edu.cn').then(function(result) {
         console.log(result);
+    }).catch(function(err) {
+        // error occured
     });
 
 ## 文档
 
 ### 查 IP
 
-IP17Mon.query(ip [, format])
+IPIP.ip(ip [, format])
 
 **ip**
 
@@ -32,7 +35,11 @@ IP17Mon.query(ip [, format])
 
 制定返回数据的格式，可设置为 `array` 或者 `dict`。 
 
-默认是长度为4的数组，包含国家、省份、城市、单位信息。
+对于免费版（dat 格式）数据，包含国家、省份、城市、组织。收费版（datx 正在支持中）。
+
+设为 `array`（缺省）时返回格式如下：
+    
+    ['国家', '省份', '城市', '组织']
 
 设为 `dict` 时返回格式如下：
 
@@ -40,12 +47,12 @@ IP17Mon.query(ip [, format])
         country: '国家',
         province: '省份',
         city: '城市',
-        organization: '单位' 
+        organization: '组织' 
     }
 
 ### 查询域名
 
-IP17Mon.queryDomain(domain [, format], callback)
+IP17Mon.domain(domain [, format], callback)
 
 由于需要查询 DNS，本函数只能通过异步调用。
 
@@ -63,17 +70,25 @@ IP17Mon.queryDomain(domain [, format], callback)
 
 ## 示例
 
-    ip17mon.query('202.195.161.30', 'dict');
+    ipip.domain('ujs.edu.cn', function(result) {
+        /*
+        yields:
+        {
+            country: '中国',
+            province: '江苏',
+            city: '镇江',
+            organization: '江苏大学' 
+        }
+        */
+    });
 
-    /*
-    returns:
-    {
-        country: '中国',
-        province: '江苏',
-        city: '镇江',
-        organization: '江苏大学' 
-    }
-    */
+
+## Promise 用法
+
+对于 domain方法，在 node 引擎支持 Promise 的环境中，省略 `callback` 参数即可返回一个 Promise 对象。
+
+    ipip.domain()
+
 
 ## 提示
 
