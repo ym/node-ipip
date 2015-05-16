@@ -8,7 +8,7 @@ var TEST_DATA_PATH = require('path').join(__dirname, '..', '17monipdb.datx');
 var content = fs.readFileSync(TEST_DATA_PATH);
 var datx = new Datx(content);
 
-describe('Dat reader', function() {
+describe('Datx reader', function() {
   it('should parse an ip', function(done) {
     var record = datx.lookup(0xCAC3A11E);
     expect(record).to.be.an.aray;
