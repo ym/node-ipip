@@ -1,22 +1,27 @@
-# node-ipip [![Build Status](https://travis-ci.org/ChiChou/node-ipip.svg?branch=master)](https://travis-ci.org/ChiChou/node-ipip) [![Coverage Status](https://img.shields.io/coveralls/ChiChou/node-ipip.svg)](https://coveralls.io/r/ChiChou/node-ipip)
+# node-ipip [![Build Status](https://travis-ci.org/ChiChou/node-ipip.svg?branch=master)](https://travis-ci.org/ChiChou/node-ipip) [![Coverage Status](https://img.shields.io/coveralls/ChiChou/node-ipip.svg)](https://coveralls.io/r/ChiChou/node-ipip) [![npm version](https://badge.fury.io/js/ipip.svg)](http://badge.fury.io/js/ipip)
 
 [中文文档](README.md)
 
-A Node.js module to query location information for a given IP or domain name, based on database by [ipip.net](http://ipip.net).
+A Node.js module to query geolocation information for an IP or domain, based on database by [ipip.net](http://ipip.net).
 
-Forked from: [ilsanbao/17moncn](https://github.com/ilsanbao/17moncn/tree/master/ip/nodejs)
 
 ## Getting Started
+
+Install the module:
+
+    npm install ipip
 
 [Database](http://s.qdcdn.com/17mon/17monipdb.zip) is provided by ipip.net. It will be downloaded automatically, no extra operations needed.
 
     var ipip = require('ipip');
     var ip = new ipip.IPIP();
 
-    console.log(ip.ip('202.195.161.30', 'dict')); 
+    // lookup an ip
+    console.log(ip.ip('202.195.161.30', 'dict'));
+
     // domain queries must be asynchronous
     ip.domain('ujs.edu.cn', 'dict', function(result) {
-        console.log(result);
+      console.log(result);
     });
 
 ## Documentation
@@ -36,10 +41,10 @@ Format of the information, shoule be `array` or `dict`.
 When set to `dict` you'll get an object that consists of four keys: `country`, `province`, `city`, `organization`. e.g.:
 
     {
-        country: '中国',
-        province: '江苏',
-        city: '镇江',
-        organization: '江苏大学' 
+      country: '中国',
+      province: '江苏',
+      city: '镇江',
+      organization: '江苏大学' 
     }
 
 Otherwise, it returns an array as following format: `['country', 'province', 'city', 'organization']`.
@@ -67,7 +72,7 @@ Fires when result found. Should be declared as: `callback(err, result)`
 Without `callback` parameter you can use another favor of async programming, the `Promise`. It's highly recommended.
 
     ip.domain('google.com').then(function(result) {
-        //
+      // do the stuff
     });
 
 ## Contributing

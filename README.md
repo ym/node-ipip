@@ -1,4 +1,4 @@
-# node-ipip [![Build Status](https://travis-ci.org/ChiChou/node-ipip.svg?branch=master)](https://travis-ci.org/ChiChou/node-ipip) [![Coverage Status](https://img.shields.io/coveralls/ChiChou/node-ipip.svg)](https://coveralls.io/r/ChiChou/node-ipip)
+# node-ipip [![Build Status](https://travis-ci.org/ChiChou/node-ipip.svg?branch=master)](https://travis-ci.org/ChiChou/node-ipip) [![Coverage Status](https://img.shields.io/coveralls/ChiChou/node-ipip.svg)](https://coveralls.io/r/ChiChou/node-ipip) [![npm version](https://badge.fury.io/js/ipip.svg)](http://badge.fury.io/js/ipip)
 
 [English Document](README.en.md)
 
@@ -6,19 +6,26 @@
 
 ## 入门
 
+安装依赖项
+
+    npm install ipip
+
 [IP 地址库](http://s.qdcdn.com/17mon/17monipdb.dat) 由 17mon 提供，在 `npm install` 过程中将自动下载。
 
 代码示例
 
-    var ipip = require('ipip').get();
-    ...
+    var ipip = require('ipip').IPIP;
+    var ip = new IPIP();
+    // ...
+    
     // 查询 IP 信息，以字典格式返回
-    console.log(ipip.ip('202.195.161.30'));
+    console.log(ip.ip('202.195.161.30'));
+
     // 域名的接口必须使用异步调用
-    ip17mon.domain('ujs.edu.cn').then(function(result) {
-        console.log(result);
+    ip.domain('ujs.edu.cn').then(function(result) {
+      console.log(result);
     }).catch(function(err) {
-        // error occured
+      // error occured
     });
 
 ## 文档
@@ -44,15 +51,15 @@ IPIP.ip(ip [, format])
 设为 `dict` 时返回格式如下：
 
     {
-        country: '国家',
-        province: '省份',
-        city: '城市',
-        organization: '组织' 
+      country: '国家',
+      province: '省份',
+      city: '城市',
+      organization: '组织' 
     }
 
 ### 查询域名
 
-IP17Mon.domain(domain [, format], callback)
+IPIP.domain(domain [, format], callback)
 
 由于需要查询 DNS，本函数只能通过异步调用。
 
@@ -70,16 +77,16 @@ IP17Mon.domain(domain [, format], callback)
 
 ## 示例
 
-    ipip.domain('ujs.edu.cn', function(result) {
-        /*
-        yields:
-        {
-            country: '中国',
-            province: '江苏',
-            city: '镇江',
-            organization: '江苏大学' 
-        }
-        */
+    ip.domain('ujs.edu.cn', function(result) {
+      /*
+      yields:
+      {
+        country: '中国',
+        province: '江苏',
+        city: '镇江',
+        organization: '江苏大学' 
+      }
+      */
     });
 
 
@@ -87,10 +94,9 @@ IP17Mon.domain(domain [, format], callback)
 
 对于 domain方法，在 node 引擎支持 Promise 的环境中，省略 `callback` 参数即可返回一个 Promise 对象。
 
-    ipip.domain('baidu.com').then(function() {
-        // do the stuff
+    ip.domain('baidu.com').then(function() {
+      // do the stuff
     });
-
 
 ## 提示
 
