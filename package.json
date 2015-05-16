@@ -1,6 +1,6 @@
 {
   "name": "ipip",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "main": "lib/ipip.js",
   "description": "Query location information for a given IP, based on database by 17mon.cn",
   "homepage": "http://tool.17mon.cn",

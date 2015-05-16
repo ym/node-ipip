@@ -87,9 +87,15 @@ IP17Mon.domain(domain [, format], callback)
 
 对于 domain方法，在 node 引擎支持 Promise 的环境中，省略 `callback` 参数即可返回一个 Promise 对象。
 
-    ipip.domain()
+    ipip.domain('baidu.com').then(function() {
+        // do the stuff
+    });
 
 
 ## 提示
 
 程序在初始化过程中会一次性加载数据库到内存，消耗一定 RAM 并阻塞线程。请注意管理模块实例以免发生内存泄露。
+
+## 授权
+
+MIT
