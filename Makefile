@@ -20,8 +20,4 @@ test-coveralls:
 
 test-all: test test-coveralls
 
-prepare:
-	wget http://s.qdcdn.com/17mon/17monipdb.zip
-	unzip -p 17monipdb.zip 17monipdb.dat>17monipdb.dat
-
 .PHONY: test

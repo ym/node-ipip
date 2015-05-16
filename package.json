@@ -1,6 +1,6 @@
 {
   "name": "ipip",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "main": "lib/ipip.js",
   "description": "Query location information for a given IP, based on database by 17mon.cn",
   "homepage": "http://tool.17mon.cn",
@@ -19,10 +19,10 @@
     "lib"
   ],
   "scripts": {
-    "preinstall": "make prepare",
+    "preinstall": "wget http://s.qdcdn.com/17mon/17monipdb.zip&&unzip -p 17monipdb.zip 17monipdb.dat>17monipdb.dat",
     "test": "make test-all"
   },
-  "keywords": [],
+  "keywords": ["ip", "isp", "geolocation", "lookup"],
   "devDependencies": {
     "chai": "^1.9.2",
     "coveralls": "^2.11.2",
