@@ -1,6 +1,6 @@
 {
   "name": "ipip-coffee",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "main": "lib/ipip.js",
   "description": "Query geolocation information from IP",
   "homepage": "http://tool.17mon.cn",
