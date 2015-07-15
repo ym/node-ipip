@@ -26,6 +26,15 @@ net = require('net')
 DEFAULT_DATA_PATH = require('path').join(__dirname, '..', '17monipdb.dat')
 
 ###*
+# get version of database
+# @return {Object}    version
+###
+
+IPIP::info = () ->
+  return @_driver.info() if typeof @_driver.info is 'function'
+  {}
+
+###*
 # query information by ip address
 # @param  {String} ip IPv4 address
 # @return {Object|Array}    query result

@@ -34,9 +34,9 @@ query(ip [, format])
 
 IP address that you want to query. e.g. `8.8.8.8`
 
-**format** 
+**format**
 
-Format of the information, shoule be `array` or `dict`. 
+Format of the information, shoule be `array` or `dict`.
 
 When set to `dict` you'll get an object that consists of four keys: `country`, `province`, `city`, `organization`. e.g.:
 
@@ -44,7 +44,7 @@ When set to `dict` you'll get an object that consists of four keys: `country`, `
       country: '中国',
       province: '江苏',
       city: '镇江',
-      organization: '江苏大学' 
+      organization: '江苏大学'
     }
 
 Otherwise, it returns an array as following format: `['country', 'province', 'city', 'organization']`.
@@ -59,9 +59,9 @@ Due to dns query, this function must be asynchronous.
 
 Domain name that you want to query. e.g. `google.com`
 
-**format** 
+**format**
 
-The same as `ip`. 
+The same as `ip`.
 
 **callback**
 
@@ -81,4 +81,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## License
 
+(C) Copyright 2015 Aveline Swan. Licensed under the MIT license.
 (C) Copyright 2015 ChiChou. Licensed under the MIT license.
