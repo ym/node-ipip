@@ -3,9 +3,13 @@ REPORTER = spec
 TIMEOUT = 2000
 ISTANBUL = ./node_modules/.bin/istanbul
 MOCHA = ./node_modules/mocha/bin/_mocha
+COFFEE = ./node_modules/coffee-script/bin/coffee
 COVERALLS = ./node_modules/coveralls/bin/coveralls.js
 
-test:
+compile:
+	$(COFFEE) -o ./ -c src
+
+test: compile
 	@NODE_ENV=test $(MOCHA) -R $(REPORTER) -t $(TIMEOUT) \
 		$(MOCHA_OPTS) \
 		$(TESTS)
