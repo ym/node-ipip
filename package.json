@@ -1,18 +1,23 @@
 {
-  "name": "ipip",
-  "version": "1.0.6",
+  "name": "ipip-coffee",
+  "version": "1.0.7",
   "main": "lib/ipip.js",
   "description": "Query geolocation information from IP",
   "homepage": "http://tool.17mon.cn",
-  "bugs": "https://github.com/ChiChou/node-ipip/issues",
+  "bugs": "https://github.com/ym/node-ipip/issues",
   "author": {
     "name": "ChiChou",
     "email": "chichou@ujs.edu.cn",
     "url": "http://chichou.0ginr.com/"
   },
+  "contributors": [{
+    "name": "Aveline Swan",
+    "email": "i@xswan.net",
+    "url": "https://swan.im/"
+  }],
   "repository": {
     "type": "git",
-    "url": "git://github.com/ChiChou/node-ipip.git"
+    "url": "git://github.com/ym/node-ipip.git"
   },
   "license": "MIT",
   "files": [
