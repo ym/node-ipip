@@ -1,11 +1,11 @@
 HEADER_SIZE      = 0x400
 IP_MASK          = 0xFF000000
 BLOCK_SIZE       = 8
-PARTITION_FACTOR = 22
+PARTITION_FACTOR = 24
 LEN_OFFSET       = 7
 
 ###*
-# driver for dat format provided by ipip.net
+# Driver for dat format provided by ipip.net
 # @param {Buffer} buffer file content
 ###
 
@@ -21,18 +21,22 @@ Dat = (buffer) ->
 ###
 
 Dat::lookup = (ip) ->
-  partition = (ip & IP_MASK) >>> PARTITION_FACTOR
+  # Get leading bits of IP address
+  partition = ip & IP_MASK
+  # Convert to decimal number
+  partition = partition >>> PARTITION_FACTOR
+
   floor = @buffer.readInt32LE(partition + 4) * BLOCK_SIZE + HEADER_SIZE
   ceil = @len - HEADER_SIZE - 4
+
   # binary search
   low = 0
   high = Math.floor((ceil - floor) / BLOCK_SIZE)
   mid = undefined
 
   while low <= high
-    mid = (low + high) >>> 1
-    offset = floor + (mid * BLOCK_SIZE) + 4
-
+    mid = low + high >>> 1
+    offset = floor + mid * BLOCK_SIZE + 4
     a = @buffer.readInt32BE(offset) >>> 0
     b = @buffer.readInt32BE(offset + BLOCK_SIZE) >>> 0
     if b < ip
@@ -42,9 +46,11 @@ Dat::lookup = (ip) ->
     else
       # found
       offset += BLOCK_SIZE
+
       index = @buffer.readInt32LE(offset + 4) >>> 0
       recordOffset = (index & 0x00FFFFFF) + @len - HEADER_SIZE
       recordLength = @buffer.readUInt8(offset + LEN_OFFSET)
+
       return @buffer.slice(recordOffset, recordOffset + recordLength).toString().split('\t')
   null
 
