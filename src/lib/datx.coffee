@@ -90,7 +90,7 @@ Datx::columns = [
   'province'
   'city'
   'organization'
-  'isp'
+  'carrier'
 
   'latitude'
   'longitude'
